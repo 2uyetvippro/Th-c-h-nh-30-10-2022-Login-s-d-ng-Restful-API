@@ -5,12 +5,10 @@ import { Picker } from "@react-native-picker/picker";
 import MainButton from "../../components/MainButton";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function DrinkDetailScreen({ navigation, route }) {
+export default function ProductDetailScreen({ navigation, route }) {
   const params = route.params;
   const { item } = params;
   const [amount, setAmount] = useState(1);
-  const [size, setSize] = useState(item.size[0]);
-  const [ice, setIce] = useState(item.ice[0]);
   const onGoBack = () => {
     navigation.goBack();
   };
@@ -24,8 +22,6 @@ export default function DrinkDetailScreen({ navigation, route }) {
         image: item.image,
         price: item.price,
         amount: amount,
-        size: size,
-        ice: ice,
         owner: item.owner,
       });
     } else {
@@ -36,8 +32,6 @@ export default function DrinkDetailScreen({ navigation, route }) {
         image: item.image,
         price: item.price,
         amount: amount,
-        size: size,
-        ice: ice,
         owner: item.owner,
       });
     }
@@ -45,16 +39,16 @@ export default function DrinkDetailScreen({ navigation, route }) {
     navigation.navigate("CartScreen");
   };
   return (
-    <ScrollView style={{ backgroundColor: "#fff", flex: 1 }}>
+    <ScrollView style={{ flex: 1 }}>
       <View style={{ position: "relative" }}>
         <Image
-          style={{ width: "100%", height: 300 }}
+          style={{ width: "100%", height: 400 }}
           source={{ uri: item.image }}
         />
         <TouchableOpacity
           onPress={onGoBack}
           style={{
-            backgroundColor: "#ffffff60",
+            backgroundColor: "black",
             position: "absolute",
             top: 30,
             left: 12,
@@ -76,97 +70,27 @@ export default function DrinkDetailScreen({ navigation, route }) {
             color: "#000",
             fontSize: 12,
             fontWeight: "bold",
-            marginTop: 24,
+            marginTop: 10,
           }}
         >
           MÔ TẢ
         </Text>
-        <Text
-          style={{
-            color: "gray",
-          }}
-        >
-          {item.description}
-        </Text>
-        <View style={{ flexDirection: "row", marginTop: 20 }}>
+        <ScrollView style={{width: "100%",height: 150}}>
+          <Text
+            style={{
+              color: "gray",
+            }}
+          >
+            {item.description}
+          </Text>
+        </ScrollView>
+
+
+        <View style={{ flexDirection: "row", marginTop: 10 }}>
           <View>
             <Text
               style={{
-                color: "#2FDBBC",
-                fontSize: 10,
-                fontWeight: "bold",
-                marginLeft: 12,
-              }}
-            >
-              SIZE
-            </Text>
-            <View
-              style={{
-                backgroundColor: "#f4f4f4",
-                borderRadius: 100,
-                paddingHorizontal: 8,
-              }}
-            >
-              <Picker
-                style={{ width: 140, height: 40 }}
-                selectedValue={size}
-                onValueChange={(itemValue, itemIndex) => setSize(itemValue)}
-              >
-                {item.size.map((value, index) => (
-                  <Picker.Item key={index} label={value} value={value} />
-                ))}
-              </Picker>
-            </View>
-            {/* <View
-              style={{
-                backgroundColor: "#F4F4F4",
-                paddingHorizontal: 16,
-                borderRadius: 100,
-                marginTop: 4,
-                width: 150,
-                paddingVertical: 8,
-                flexDirection: "row",
-              }}
-            >
-              <Text style={{ color: "#000", flex: 1 }}>{number}</Text>
-            </View> */}
-          </View>
-          <View style={{ flex: 1 }} />
-          <View>
-            <Text
-              style={{
-                color: "#2FDBBC",
-                fontSize: 10,
-                fontWeight: "bold",
-                marginLeft: 12,
-              }}
-            >
-              LƯỢNG ĐÁ
-            </Text>
-            <View
-              style={{
-                backgroundColor: "#f4f4f4",
-                borderRadius: 100,
-                paddingHorizontal: 8,
-              }}
-            >
-              <Picker
-                style={{ width: 140, height: 40 }}
-                selectedValue={ice}
-                onValueChange={(itemValue, itemIndex) => setIce(itemValue)}
-              >
-                {item.ice.map((value, index) => (
-                  <Picker.Item key={index} label={value} value={value} />
-                ))}
-              </Picker>
-            </View>
-          </View>
-        </View>
-        <View style={{ flexDirection: "row", marginTop: 20 }}>
-          <View>
-            <Text
-              style={{
-                color: "#2FDBBC",
+                color: "black",
                 fontSize: 10,
                 fontWeight: "bold",
                 marginLeft: 12,
@@ -185,20 +109,20 @@ export default function DrinkDetailScreen({ navigation, route }) {
                 flexDirection: "row",
               }}
             >
-              <Text style={{ color: "#000", flex: 1 }}>{amount}</Text>
+              <Text style={{ color: "#000", flex: 1, textAlign: "center" }}>{amount}</Text>
               <TouchableOpacity
                 onPress={() => {
                   if (amount > 1) setAmount((val) => val - 1);
                 }}
               >
-                <Ionicons name="remove" size={24} color="#2FDBBC" />
+                <Ionicons name="remove" size={24} color="black" />
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => {
                   setAmount((val) => val + 1);
                 }}
               >
-                <Ionicons name="add" size={24} color="#2FDBBC" />
+                <Ionicons name="add" size={24} color="black" />
               </TouchableOpacity>
             </View>
           </View>
@@ -215,8 +139,8 @@ export default function DrinkDetailScreen({ navigation, route }) {
             </Text>
             <Text
               style={{
-                color: "#2FDBBC",
-                fontSize: 30,
+                color: "red",
+                fontSize: 20,
                 textAlign: "right",
                 fontWeight: "bold",
               }}
@@ -227,7 +151,7 @@ export default function DrinkDetailScreen({ navigation, route }) {
         </View>
         <MainButton
           onPress={addToCart}
-          style={{ marginTop: 30 }}
+          style={{ marginTop: 10 }}
           title={"THÊM VÀO GIỎ"}
         />
       </View>

@@ -26,7 +26,7 @@ export default function ProfileScreen({ navigation }) {
         backgroundColor: "#fff",
         flex: 1,
         width: "100%",
-        paddingTop: StatusBar.currentHeight + 30,
+        paddingTop: StatusBar.currentHeight + 100,
         paddingHorizontal: 12,
       }}
     >
@@ -37,7 +37,7 @@ export default function ProfileScreen({ navigation }) {
             width: 120,
             borderRadius: 100,
           }}
-          source={{ uri: "https://i.pravatar.cc/300" }}
+          source={{ uri: "https://i.pravatar.cc/500" }}
         />
         <Text
           style={{
@@ -57,12 +57,12 @@ export default function ProfileScreen({ navigation }) {
         <View
           style={{
             flexDirection: "row",
-            marginTop: 20,
+            marginTop: 80,
             paddingBottom: 12,
             borderBottomColor: "gray",
-            borderBottomWidth: 1,
           }}
         >
+
           <Text
             style={{
               fontWeight: "bold",
@@ -71,17 +71,7 @@ export default function ProfileScreen({ navigation }) {
               textAlign: "center",
             }}
           >
-            {"Đang Giao"}
-          </Text>
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 20,
-              flex: 1,
-              textAlign: "center",
-            }}
-          >
-            {"Đã Giao"}
+            {"Đã Thanh Toán"}
           </Text>
           <Text
             style={{
@@ -101,7 +91,7 @@ export default function ProfileScreen({ navigation }) {
         >
           <Text
             style={{
-              color: "#2FDBBC",
+              color: "black",
               fontSize: 25,
               flex: 1,
               textAlign: "center",
@@ -109,19 +99,11 @@ export default function ProfileScreen({ navigation }) {
           >
             {"01"}
           </Text>
+
+
           <Text
             style={{
-              color: "#2FDBBC",
-              fontSize: 25,
-              flex: 1,
-              textAlign: "center",
-            }}
-          >
-            {"02"}
-          </Text>
-          <Text
-            style={{
-              color: "#2FDBBC",
+              color: "black",
               fontSize: 25,
               flex: 1,
               textAlign: "center",

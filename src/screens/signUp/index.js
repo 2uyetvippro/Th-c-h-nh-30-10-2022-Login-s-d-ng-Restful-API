@@ -74,9 +74,10 @@ export default function SignUpScreen({ navigation }) {
           style={{
             color: "#000",
             fontSize: 25,
+            paddingTop: 8,
             paddingLeft: 20,
             fontWeight: "bold",
-            letterSpacing: 5,
+            letterSpacing: 1,
           }}
         >
           Đăng Ký
@@ -91,23 +92,14 @@ export default function SignUpScreen({ navigation }) {
         <Image
           style={{
             alignSelf: "center",
-            height: 100,
+            height: 200,
             resizeMode: "contain",
-            width: 100,
+            width: 300,
+            marginTop: -80,
+            marginBottom: 20,
           }}
-          source={require("../../../assets/Juice.png")}
+          source={require("../../../assets/LOGOTQ-removebg-preview.png")}
         />
-        <Text
-          style={{
-            textAlign: "center",
-            fontWeight: "bold",
-            color: "#2FDBBC",
-            fontSize: 25,
-            marginBottom: 50,
-          }}
-        >
-          DrinkApp
-        </Text>
         <MainInput
           title={"Họ và tên"}
           placeholder={"Nhập họ và tên"}

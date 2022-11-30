@@ -42,9 +42,9 @@ export default function MyTabBar({ state, descriptors, navigation }) {
           >
             <Image
               style={{
-                tintColor: isFocused ? "#67E5CE" : "#222",
-                height: 22,
-                width: 22,
+                tintColor: isFocused ? "orange" : "#222",
+                height: 26,
+                width: 26,
                 resizeMode: "contain",
               }}
               source={imgArr[index]}
@@ -53,9 +53,9 @@ export default function MyTabBar({ state, descriptors, navigation }) {
               style={{
                 marginTop: 4,
                 height: 2,
-                width: 8,
+                width: 50,
                 borderRadius: 10,
-                backgroundColor: isFocused ? "#67E5CE" : "transparent",
+                backgroundColor: isFocused ? "orange" : "transparent",
               }}
             />
           </TouchableOpacity>

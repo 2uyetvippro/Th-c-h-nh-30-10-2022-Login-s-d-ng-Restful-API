@@ -12,17 +12,17 @@ export default function MainInput(props) {
   } = props;
   return (
     <>
-      <Text style={{ color: "#2FDBBC", fontWeight: "bold", marginLeft: 20 }}>
+      <Text style={{ color: "black", fontWeight: "bold", marginLeft: 10 }}>
         {title}
       </Text>
       <TextInput
         secureTextEntry={secureTextEntry}
         style={{
           backgroundColor: "#f4f4f4",
-          paddingVertical: 6,
+          paddingVertical: 15,
           borderRadius: 20,
           paddingHorizontal: 20,
-          marginBottom: 14,
+          marginBottom: 15,
         }}
         placeholder={placeholder}
         onEndEditing={onEndEditing}

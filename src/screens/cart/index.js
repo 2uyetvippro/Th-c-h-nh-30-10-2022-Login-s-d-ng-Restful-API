@@ -48,8 +48,7 @@ export default function CartScreen() {
   return (
     <View
       style={{
-        paddingTop: StatusBar.currentHeight + 20,
-        backgroundColor: "#fff",
+        paddingTop: StatusBar.currentHeight + 50,
         paddingHorizontal: 12,
         flex: 1,
       }}
@@ -59,7 +58,7 @@ export default function CartScreen() {
           style={{
             fontWeight: "bold",
             fontSize: 20,
-            color: "#2FDBBC",
+            color: "black",
             flex: 1,
           }}
         >
@@ -77,7 +76,7 @@ export default function CartScreen() {
           style={{
             fontWeight: "bold",
             fontSize: 18,
-            color: "#2FDBBC",
+            color: "red",
           }}
         >
            {getTotal()} VND

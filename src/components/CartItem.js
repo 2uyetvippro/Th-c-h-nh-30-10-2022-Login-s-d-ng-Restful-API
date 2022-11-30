@@ -38,13 +38,15 @@ export default function CartItem(props) {
   return (
     <View
       style={{
+        width: '95%',
+        height: 110,
         flexDirection: "row",
         marginBottom: 12,
         marginHorizontal: 10,
         shadowColor: "#000",
         shadowOffset: {
           width: 0,
-          height: 4,
+          height: 10,
         },
         shadowOpacity: 0.3,
         shadowRadius: 4.65,
@@ -59,8 +61,9 @@ export default function CartItem(props) {
         style={{ height: 80, width: 80, borderRadius: 20, marginRight: 12 }}
       />
       <View style={{ flex: 1 }}>
-        <View style={{ flexDirection: "row" }}>
-          <Text style={{ fontWeight: "bold" }}>{item.name} - </Text>
+        <View style={{ flexDirection: "column" }}>
+          <Text style={{ fontWeight: "bold" }}>{item.name}</Text>
+
           <Text style={{ fontWeight: "bold", color: "#F99928" }}>
             {item.owner}
           </Text>
@@ -68,36 +71,35 @@ export default function CartItem(props) {
         <View style={{ flexDirection: "row" }}>
           <View style={{ flex: 1 }}>
             <Text style={{ fontSize: 11 }}>Price: {item.price} VND</Text>
-            <Text style={{ fontSize: 11 }}>Size: {item.size}</Text>
-            <Text style={{ fontSize: 11 }}>Ice: {item.ice}</Text>
           </View>
-          <View style={{ alignItems: "center", flexDirection: "row" }}>
+          <View style={{ alignItems: "center", flexDirection: "row",position: "absolute",bottom: -30,right:0}}>
             <TouchableOpacity
               onPress={handleOnRemove}
-              style={{ backgroundColor: "#2FDBBC", borderRadius: 8 }}
+              style={{ backgroundColor: "black", borderRadius: 10}}
             >
               <Ionicons name="remove" size={24} color="#fff" />
             </TouchableOpacity>
-            <Text style={{ fontWeight: "bold", marginHorizontal: 15 }}>
+            <Text style={{ fontWeight: "bold", marginHorizontal: 8 }}>
               {amount}
             </Text>
             <TouchableOpacity
               onPress={handleOnAdd}
-              style={{ backgroundColor: "#2FDBBC", borderRadius: 8 }}
+              style={{ backgroundColor: "black", borderRadius: 10 }}
             >
               <Ionicons name="add" size={24} color="#fff" />
             </TouchableOpacity>
+            <TouchableOpacity
+              onPress={handleDelete}
+              style={{
+                marginLeft: 25,
+                marginRight: 6,
+                justifyContent: "center",
+              }}
+            >
+              <AntDesign name="delete" size={25} color="red" />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity
-            onPress={handleDelete}
-            style={{
-              marginLeft: 25,
-              marginRight: 6,
-              justifyContent: "center",
-            }}
-          >
-            <AntDesign name="delete" size={24} color="red" />
-          </TouchableOpacity>
+
         </View>
       </View>
     </View>
